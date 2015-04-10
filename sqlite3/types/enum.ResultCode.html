@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `ResultCode` enum in crate `sqlite3`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, ResultCode">
+
+    <title>sqlite3::types::ResultCode - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <section class="sidebar">
+        
+        <p class='location'><a href='../index.html'>sqlite3</a>::<wbr><a href='index.html'>types</a></p><script>window.sidebarCurrent = {name: 'ResultCode', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content enum">
+<h1 class='fqn'><span class='in-band'>Enum <a href='../index.html'>sqlite3</a>::<wbr><a href='index.html'>types</a>::<wbr><a class='enum' href=''>ResultCode</a><wbr></span><span class='out-of-band'><span id='render-detail'>
+            <a id="collapse-all" href="#">[-]</a>&nbsp;<a id="expand-all" href="#">[+]</a>
+        </span><a id='src-2460' href='../../src/sqlite3/types.rs.html#39-69'>[src]</a></span></h1>
+<pre class='rust enum'>pub enum ResultCode {
+    SQLITE_OK,
+    SQLITE_ERROR,
+    SQLITE_INTERNAL,
+    SQLITE_PERM,
+    SQLITE_ABORT,
+    SQLITE_BUSY,
+    SQLITE_LOCKED,
+    SQLITE_NOMEM,
+    SQLITE_READONLY,
+    SQLITE_INTERRUPT,
+    SQLITE_IOERR,
+    SQLITE_CORRUPT,
+    SQLITE_NOTFOUND,
+    SQLITE_FULL,
+    SQLITE_CANTOPEN,
+    SQLITE_PROTOCOL,
+    SQLITE_EMPTY,
+    SQLITE_SCHEMA,
+    SQLITE_TOOBIG,
+    SQLITE_CONSTRAINT,
+    SQLITE_MISMATCH,
+    SQLITE_MISUSE,
+    SQLITE_NOLFS,
+    SQLITE_AUTH,
+    SQLITE_FORMAT,
+    SQLITE_RANGE,
+    SQLITE_NOTADB,
+    SQLITE_ROW,
+    SQLITE_DONE,
+}</pre><h2 class='variants'>Variants</h2>
+<table><tr><td id='variant.SQLITE_OK'><a class='stability Unmarked' title='No stability level'></a><code>SQLITE_OK</code></td><td></td></tr><tr><td id='variant.SQLITE_ERROR'><a class='stability Unmarked' title='No stability level'></a><code>SQLITE_ERROR</code></td><td></td></tr><tr><td id='variant.SQLITE_INTERNAL'><a class='stability Unmarked' title='No stability level'></a><code>SQLITE_INTERNAL</code></td><td></td></tr><tr><td id='variant.SQLITE_PERM'><a class='stability Unmarked' title='No stability level'></a><code>SQLITE_PERM</code></td><td></td></tr><tr><td id='variant.SQLITE_ABORT'><a class='stability Unmarked' title='No stability level'></a><code>SQLITE_ABORT</code></td><td></td></tr><tr><td id='variant.SQLITE_BUSY'><a class='stability Unmarked' title='No stability level'></a><code>SQLITE_BUSY</code></td><td></td></tr><tr><td id='variant.SQLITE_LOCKED'><a class='stability Unmarked' title='No stability level'></a><code>SQLITE_LOCKED</code></td><td></td></tr><tr><td id='variant.SQLITE_NOMEM'><a class='stability Unmarked' title='No stability level'></a><code>SQLITE_NOMEM</code></td><td></td></tr><tr><td id='variant.SQLITE_READONLY'><a class='stability Unmarked' title='No stability level'></a><code>SQLITE_READONLY</code></td><td></td></tr><tr><td id='variant.SQLITE_INTERRUPT'><a class='stability Unmarked' title='No stability level'></a><code>SQLITE_INTERRUPT</code></td><td></td></tr><tr><td id='variant.SQLITE_IOERR'><a class='stability Unmarked' title='No stability level'></a><code>SQLITE_IOERR</code></td><td></td></tr><tr><td id='variant.SQLITE_CORRUPT'><a class='stability Unmarked' title='No stability level'></a><code>SQLITE_CORRUPT</code></td><td></td></tr><tr><td id='variant.SQLITE_NOTFOUND'><a class='stability Unmarked' title='No stability level'></a><code>SQLITE_NOTFOUND</code></td><td></td></tr><tr><td id='variant.SQLITE_FULL'><a class='stability Unmarked' title='No stability level'></a><code>SQLITE_FULL</code></td><td></td></tr><tr><td id='variant.SQLITE_CANTOPEN'><a class='stability Unmarked' title='No stability level'></a><code>SQLITE_CANTOPEN</code></td><td></td></tr><tr><td id='variant.SQLITE_PROTOCOL'><a class='stability Unmarked' title='No stability level'></a><code>SQLITE_PROTOCOL</code></td><td></td></tr><tr><td id='variant.SQLITE_EMPTY'><a class='stability Unmarked' title='No stability level'></a><code>SQLITE_EMPTY</code></td><td></td></tr><tr><td id='variant.SQLITE_SCHEMA'><a class='stability Unmarked' title='No stability level'></a><code>SQLITE_SCHEMA</code></td><td></td></tr><tr><td id='variant.SQLITE_TOOBIG'><a class='stability Unmarked' title='No stability level'></a><code>SQLITE_TOOBIG</code></td><td></td></tr><tr><td id='variant.SQLITE_CONSTRAINT'><a class='stability Unmarked' title='No stability level'></a><code>SQLITE_CONSTRAINT</code></td><td></td></tr><tr><td id='variant.SQLITE_MISMATCH'><a class='stability Unmarked' title='No stability level'></a><code>SQLITE_MISMATCH</code></td><td></td></tr><tr><td id='variant.SQLITE_MISUSE'><a class='stability Unmarked' title='No stability level'></a><code>SQLITE_MISUSE</code></td><td></td></tr><tr><td id='variant.SQLITE_NOLFS'><a class='stability Unmarked' title='No stability level'></a><code>SQLITE_NOLFS</code></td><td></td></tr><tr><td id='variant.SQLITE_AUTH'><a class='stability Unmarked' title='No stability level'></a><code>SQLITE_AUTH</code></td><td></td></tr><tr><td id='variant.SQLITE_FORMAT'><a class='stability Unmarked' title='No stability level'></a><code>SQLITE_FORMAT</code></td><td></td></tr><tr><td id='variant.SQLITE_RANGE'><a class='stability Unmarked' title='No stability level'></a><code>SQLITE_RANGE</code></td><td></td></tr><tr><td id='variant.SQLITE_NOTADB'><a class='stability Unmarked' title='No stability level'></a><code>SQLITE_NOTADB</code></td><td></td></tr><tr><td id='variant.SQLITE_ROW'><a class='stability Unmarked' title='No stability level'></a><code>SQLITE_ROW</code></td><td></td></tr><tr><td id='variant.SQLITE_DONE'><a class='stability Unmarked' title='No stability level'></a><code>SQLITE_DONE</code></td><td></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='enum' href='../../sqlite3/types/enum.ResultCode.html' title='sqlite3::types::ResultCode'>ResultCode</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class='struct' href='http://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='http://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/cmp/trait.Eq.html' title='core::cmp::Eq'>Eq</a> for <a class='enum' href='../../sqlite3/types/enum.ResultCode.html' title='sqlite3::types::ResultCode'>ResultCode</a></code></h3><div class='impl-items'><h4 id='method.assert_receiver_is_total_eq' class='tymethod'><a class='stability Stable' title='Stable'></a><code>fn <a href='#tymethod.assert_receiver_is_total_eq' class='fnname'>assert_receiver_is_total_eq</a>(&amp;self)</code></h4>
+</div><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a> for <a class='enum' href='../../sqlite3/types/enum.ResultCode.html' title='sqlite3::types::ResultCode'>ResultCode</a></code></h3><div class='impl-items'><h4 id='method.eq' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class='enum' href='../../sqlite3/types/enum.ResultCode.html' title='sqlite3::types::ResultCode'>ResultCode</a>) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<h4 id='method.ne' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.ne' class='fnname'>ne</a>(&amp;self, __arg_0: &amp;<a class='enum' href='../../sqlite3/types/enum.ResultCode.html' title='sqlite3::types::ResultCode'>ResultCode</a>) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+</div><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='enum' href='../../sqlite3/types/enum.ResultCode.html' title='sqlite3::types::ResultCode'>ResultCode</a></code></h3><div class='impl-items'></div><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='enum' href='../../sqlite3/types/enum.ResultCode.html' title='sqlite3::types::ResultCode'>ResultCode</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='enum' href='../../sqlite3/types/enum.ResultCode.html' title='sqlite3::types::ResultCode'>ResultCode</a></code></h4>
+<h4 id='method.clone_from' class='tymethod'><a class='stability Stable' title='Stable'></a><code>fn <a href='#tymethod.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&larrb;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&rarrb;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code>, <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+        </div>
+    </div>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "sqlite3";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script async src="../../search-index.js"></script>
+</body>
+</html>

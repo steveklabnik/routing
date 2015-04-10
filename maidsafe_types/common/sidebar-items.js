@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["NameType","NameType struct"]]});

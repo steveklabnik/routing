@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Database` struct in crate `sqlite3`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Database">
+
+    <title>sqlite3::database::Database - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <section class="sidebar">
+        
+        <p class='location'><a href='../index.html'>sqlite3</a>::<wbr><a href='index.html'>database</a></p><script>window.sidebarCurrent = {name: 'Database', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>sqlite3</a>::<wbr><a href='index.html'>database</a>::<wbr><a class='struct' href=''>Database</a><wbr></span><span class='out-of-band'><span id='render-detail'>
+            <a id="collapse-all" href="#">[-]</a>&nbsp;<a id="expand-all" href="#">[+]</a>
+        </span><a id='src-1666' href='../../src/sqlite3/database.rs.html#49-51'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct Database {
+    // some fields omitted
+}</pre><div class='docblock'><p>The database connection.</p>
+
+<p>SQLite database is <code>Send</code>able but not <code>Copy</code>able nor <code>Sync</code>able.
+Consequently, it can be shared through <code>std::sync::Mutex</code> across tasks
+(as it grants an exclusive access to the connection)
+but cannot be shared through <code>std::sync::RWLock</code>.</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><a class='stability Unmarked' title='No stability level'></a><code>impl <a class='struct' href='../../sqlite3/database/struct.Database.html' title='sqlite3::database::Database'>Database</a></code></h3><div class='impl-items'><h4 id='method.get_errmsg' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.get_errmsg' class='fnname'>get_errmsg</a>(&amp;self) -&gt; <a class='struct' href='http://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a></code></h4>
+<div class='docblock'><p>Returns the error message of the the most recent call.
+See <a href="http://www.sqlite.org/c3ref/errcode.html">http://www.sqlite.org/c3ref/errcode.html</a></p>
+</div><h4 id='method.prepare' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.prepare' class='fnname'>prepare</a>&lt;'db&gt;(&amp;'db self, sql: &amp;<a href='http://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, _tail: &amp;<a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a href='http://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>&gt;) -&gt; <a class='type' href='../../sqlite3/types/type.SqliteResult.html' title='sqlite3::types::SqliteResult'>SqliteResult</a>&lt;<a class='struct' href='../../sqlite3/cursor/struct.Cursor.html' title='sqlite3::cursor::Cursor'>Cursor</a>&lt;'db&gt;&gt;</code></h4>
+<div class='docblock'><p>Prepares/compiles an SQL statement.
+See <a href="http://www.sqlite.org/c3ref/prepare.html">http://www.sqlite.org/c3ref/prepare.html</a></p>
+</div><h4 id='method.exec' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.exec' class='fnname'>exec</a>(&amp;mut self, sql: &amp;<a href='http://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='type' href='../../sqlite3/types/type.SqliteResult.html' title='sqlite3::types::SqliteResult'>SqliteResult</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>&gt;</code></h4>
+<div class='docblock'><p>Executes an SQL statement.
+See <a href="http://www.sqlite.org/c3ref/exec.html">http://www.sqlite.org/c3ref/exec.html</a></p>
+</div><h4 id='method.get_changes' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.get_changes' class='fnname'>get_changes</a>(&amp;self) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.isize.html'>isize</a></code></h4>
+<div class='docblock'><p>Returns the number of modified/inserted/deleted rows by the most recent
+call.
+See <a href="http://www.sqlite.org/c3ref/changes.html">http://www.sqlite.org/c3ref/changes.html</a></p>
+</div><h4 id='method.get_last_insert_rowid' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.get_last_insert_rowid' class='fnname'>get_last_insert_rowid</a>(&amp;self) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.i64.html'>i64</a></code></h4>
+<div class='docblock'><p>Returns the ID of the last inserted row.
+See <a href="http://www.sqlite.org/c3ref/last_insert_rowid.html">http://www.sqlite.org/c3ref/last_insert_rowid.html</a></p>
+</div><h4 id='method.set_busy_timeout' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.set_busy_timeout' class='fnname'>set_busy_timeout</a>(&amp;mut self, ms: <a href='http://doc.rust-lang.org/nightly/std/primitive.isize.html'>isize</a>) -&gt; <a class='enum' href='../../sqlite3/types/enum.ResultCode.html' title='sqlite3::types::ResultCode'>ResultCode</a></code></h4>
+<div class='docblock'><p>Sets a busy timeout.
+See <a href="http://www.sqlite.org/c3ref/busy_timeout.html">http://www.sqlite.org/c3ref/busy_timeout.html</a></p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/marker/trait.Send.html' title='core::marker::Send'>Send</a> for <a class='struct' href='../../sqlite3/database/struct.Database.html' title='sqlite3::database::Database'>Database</a></code></h3><div class='impl-items'></div><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../sqlite3/database/struct.Database.html' title='sqlite3::database::Database'>Database</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class='struct' href='http://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='http://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+</div><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/ops/trait.Drop.html' title='core::ops::Drop'>Drop</a> for <a class='struct' href='../../sqlite3/database/struct.Database.html' title='sqlite3::database::Database'>Database</a></code></h3><div class='impl-items'><h4 id='method.drop' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.drop' class='fnname'>drop</a>(&amp;mut self)</code></h4>
+<div class='docblock'><p>Closes the database connection.
+See <a href="http://www.sqlite.org/c3ref/close.html">http://www.sqlite.org/c3ref/close.html</a></p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&larrb;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&rarrb;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code>, <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+        </div>
+    </div>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "sqlite3";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script async src="../../search-index.js"></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `RoutingTable` struct in crate `routing`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, RoutingTable">
+
+    <title>routing::routing_table::RoutingTable - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    <link rel="shortcut icon" href="http://maidsafe.net/img/favicon.ico">
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <section class="sidebar">
+        <a href='../../routing/index.html'><img src='http://maidsafe.net/img/Resources/branding/maidsafe_logo.fab2.png' alt='' width='100'></a>
+        <p class='location'><a href='../index.html'>routing</a>::<wbr><a href='index.html'>routing_table</a></p><script>window.sidebarCurrent = {name: 'RoutingTable', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>routing</a>::<wbr><a href='index.html'>routing_table</a>::<wbr><a class='struct' href=''>RoutingTable</a><wbr></span><span class='out-of-band'><span id='render-detail'>
+            <a id="collapse-all" href="#">[-]</a>&nbsp;<a id="expand-all" href="#">[+]</a>
+        </span><a id='src-12754' href='../../src/routing/routing_table.rs.html#65-68'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct RoutingTable {
+    // some fields omitted
+}</pre><div class='docblock'><p>The RoutingTable class is used to maintain a list of contacts to which we are connected.</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><a class='stability Unmarked' title='No stability level'></a><code>impl <a class='struct' href='../../routing/routing_table/struct.RoutingTable.html' title='routing::routing_table::RoutingTable'>RoutingTable</a></code></h3><div class='impl-items'><h4 id='method.new' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.new' class='fnname'>new</a>(our_id: <a class='struct' href='../../routing/types/struct.DhtId.html' title='routing::types::DhtId'>DhtId</a>) -&gt; <a class='struct' href='../../routing/routing_table/struct.RoutingTable.html' title='routing::routing_table::RoutingTable'>RoutingTable</a></code></h4>
+<h4 id='method.get_bucket_size' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.get_bucket_size' class='fnname'>get_bucket_size</a>() -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h4>
+<h4 id='method.get_parallelism' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.get_parallelism' class='fnname'>get_parallelism</a>() -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h4>
+<h4 id='method.get_optimal_size' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.get_optimal_size' class='fnname'>get_optimal_size</a>() -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h4>
+<h4 id='method.get_group_size' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.get_group_size' class='fnname'>get_group_size</a>() -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h4>
+<h4 id='method.get_quorum_size' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.get_quorum_size' class='fnname'>get_quorum_size</a>() -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h4>
+<h4 id='method.add_node' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.add_node' class='fnname'>add_node</a>(&amp;mut self, their_info: <a class='struct' href='../../routing/routing_table/struct.NodeInfo.html' title='routing::routing_table::NodeInfo'>NodeInfo</a>) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(<a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>, <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../routing/routing_table/struct.NodeInfo.html' title='routing::routing_table::NodeInfo'>NodeInfo</a>&gt;)</a></code></h4>
+<div class='docblock'><p>Potentially adds a contact to the routing table.  If the contact is added, the first return arg
+is true, otherwise false.  If adding the contact caused another contact to be dropped, the
+dropped one is returned in the second field, otherwise the optional field is empty.  The
+following steps are used to determine whether to add the new contact or not:</p>
+
+<p>1 - if the contact is ourself, or doesn&#39;t have a valid public key, or is already in the table,
+    it will not be added
+2 - if the routing table is not full (size &lt; OptimalSize()), the contact will be added
+3 - if the contact is within our close group, it will be added
+4 - if we can find a candidate for removal (a contact in a bucket with more than &#39;BucketSize()&#39;
+    contacts, which is also not within our close group), and if the new contact will fit in a
+    bucket closer to our own bucket, then we add the new contact.</p>
+</div><h4 id='method.check_node' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.check_node' class='fnname'>check_node</a>(&amp;self, their_id: &amp;<a class='struct' href='../../routing/types/struct.DhtId.html' title='routing::types::DhtId'>DhtId</a>) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>This is used to see whether to bother retrieving a contact&#39;s public key from the PKI with a
+view to adding the contact to our table.  The checking procedure is the same as for
+&#39;AddNode&#39; above, except for the lack of a public key to check in step 1.</p>
+</div><h4 id='method.drop_node' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.drop_node' class='fnname'>drop_node</a>(&amp;mut self, node_to_drop: &amp;<a class='struct' href='../../routing/types/struct.DhtId.html' title='routing::types::DhtId'>DhtId</a>)</code></h4>
+<div class='docblock'><p>This unconditionally removes the contact from the table.</p>
+</div><h4 id='method.target_nodes' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.target_nodes' class='fnname'>target_nodes</a>(&amp;self, target: <a class='struct' href='../../routing/types/struct.DhtId.html' title='routing::types::DhtId'>DhtId</a>) -&gt; <a class='struct' href='http://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../routing/routing_table/struct.NodeInfo.html' title='routing::routing_table::NodeInfo'>NodeInfo</a>&gt;</code></h4>
+<div class='docblock'><p>This returns a collection of contacts to which a message should be sent onwards.  It will
+return all of our close group (comprising &#39;GroupSize&#39; contacts) if the closest one to the
+target is within our close group.  If not, it will return the &#39;Parallelism()&#39; closest
+contacts to the target.</p>
+</div><h4 id='method.our_close_group' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.our_close_group' class='fnname'>our_close_group</a>(&amp;self) -&gt; <a class='struct' href='http://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../routing/routing_table/struct.NodeInfo.html' title='routing::routing_table::NodeInfo'>NodeInfo</a>&gt;</code></h4>
+<div class='docblock'><p>This returns our close group, i.e. the &#39;GroupSize&#39; contacts closest to our ID (or the entire
+table if we hold less than &#39;GroupSize&#39; contacts in total).</p>
+</div><h4 id='method.get_public_key' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.get_public_key' class='fnname'>get_public_key</a>(&amp;self, their_id: <a class='struct' href='../../routing/types/struct.DhtId.html' title='routing::types::DhtId'>DhtId</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../sodiumoxide/crypto/asymmetricbox/curve25519xsalsa20poly1305/struct.PublicKey.html' title='sodiumoxide::crypto::asymmetricbox::curve25519xsalsa20poly1305::PublicKey'>PublicKey</a>&gt;</code></h4>
+<div class='docblock'><p>This returns the public key for the given node if the node is in our table.</p>
+</div><h4 id='method.size' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.size' class='fnname'>size</a>(&amp;self) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h4>
+<h4 id='method.closer_to_target' class='method'><a class='stability Unmarked' title='No stability level'></a><code>fn <a href='#method.closer_to_target' class='fnname'>closer_to_target</a>(lhs: &amp;<a class='struct' href='../../routing/types/struct.DhtId.html' title='routing::types::DhtId'>DhtId</a>, rhs: &amp;<a class='struct' href='../../routing/types/struct.DhtId.html' title='routing::types::DhtId'>DhtId</a>, target: &amp;<a class='struct' href='../../routing/types/struct.DhtId.html' title='routing::types::DhtId'>DhtId</a>) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../routing/routing_table/struct.RoutingTable.html' title='routing::routing_table::RoutingTable'>RoutingTable</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../routing/routing_table/struct.RoutingTable.html' title='routing::routing_table::RoutingTable'>RoutingTable</a></code></h4>
+<h4 id='method.clone_from' class='tymethod'><a class='stability Stable' title='Stable'></a><code>fn <a href='#tymethod.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&larrb;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&rarrb;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code>, <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+        </div>
+    </div>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "routing";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script async src="../../search-index.js"></script>
+</body>
+</html>

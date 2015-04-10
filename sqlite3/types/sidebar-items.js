@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["BindArg",""],["ColumnType",""],["ResultCode",""],["_notused",""],["dbh",""],["stmt",""]],"type":[["RowMap",""],["SqliteResult",""]]});
